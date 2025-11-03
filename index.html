@@ -9,17 +9,16 @@
 
 
     <meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  script-src 'self';
-  style-src 'self' https://fonts.googleapis.com;
+  default-src 'self' https://localhost:5173 http://localhost:5173;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://localhost:5173 http://localhost:5173;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   font-src 'self' https://fonts.gstatic.com;
-  img-src 'self' data:;
-  connect-src 'self';
+  img-src 'self' data: blob: https://localhost:5173 http://localhost:5173;
+  connect-src 'self' ws://localhost:5173 wss://localhost:5173;
   frame-src 'self';
   object-src 'none';
   base-uri 'self';
   form-action 'self';
-  upgrade-insecure-requests;
 ">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +29,34 @@
 <body>
 
     <div id="app">
+        <h1>BINGO DDV</h1>
+        <h2>2025</h2>
+        <pre id="numbers">00</pre>
+        <div class="buttons">
+            <button id="start">Nouveau nombre</button>
+            <button id="verify">Vérification</button>
+            <button id="reset">Réinitialiser</button>
+        </div>
 
+        <!-- Modal -->
+        <div id="verifyModal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Vérifier vos numéros</h3>
+                <form id="verifyForm">
+                    <div class="inputs">
+                        <input type="number" min="0" max="99" placeholder="00">
+                        <input type="number" min="0" max="99" placeholder="00">
+                        <input type="number" min="0" max="99" placeholder="00">
+                        <input type="number" min="0" max="99" placeholder="00">
+                        <input type="number" min="0" max="99" placeholder="00">
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="submit">Vérifier</button>
+                        <button type="button" id="closeModal">Fermer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
     </div>
     <script type="module" src="/src/main.js"></script>

@@ -7,7 +7,7 @@
     text-align: center;
 
     color: #FAEBD7;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 6px 8px rgba(0, 0, 0, 0.8);
 
 }
 
@@ -21,8 +21,13 @@ html, body {
 }
 
 body {
+    min-height: 100dvh; /* 👈 fills full visible area on iOS */
+    width: 100vw;
     background: url("/background.png") no-repeat center center;
     background-size: cover;
+    background-attachment: fixed;
+    background-color: #1A1110; /* fallback color behind image */
+    overscroll-behavior: none;
 }
 
 #app {
@@ -82,7 +87,7 @@ button {
     width: clamp(50px, 20vw, 200px);
     padding: 15px 10px;
 
-    color: #1A1110;
+    color: #0e0a0a;
 
     background: rgba(250, 235, 215, 0.35);
     border-radius: 16px;
@@ -227,8 +232,8 @@ spline-viewer {
 
 
     #app {
-        gap: 1rem;              /* reduce spacing between elements */
-        top: 10px;
+        gap: 2rem;              /* reduce spacing between elements */
+        top: 20px;
         left: 50%;/* move whole section higher */
 
         transform: translateX(-50%); /* slightly smaller overall size */
@@ -243,12 +248,12 @@ spline-viewer {
     }
 
     pre {
-        font-size: 25vh;          /* smaller number display */
+        font-size: 30vh;          /* smaller number display */
     }
 
     .buttons {
-        gap: 0.8rem;              /* smaller gap between buttons */
-        margin-top: 1rem;       /* pull buttons closer to number */
+        gap: 1rem;              /* smaller gap between buttons */
+        margin-top: 0.5rem;       /* pull buttons closer to number */
     }
 
     .inputs input {

@@ -1,38 +1,6 @@
 import './style.css';
 import { generateUniqueRandomNumber, resetUsedNumbers } from './numberGenerator.js';
 
-// Inject UI
-document.querySelector('#app').innerHTML = `
-  <h1>BINGO DDV</h1>
-  <h2>2025</h2>
-  <pre id="numbers">00</pre>
-  <div class="buttons">
-    <button id="start">Nouveau nombre</button>
-    <button id="verify">Vérification</button>
-    <button id="reset">Réinitialiser</button>
-  </div>
-
-  <!-- Modal -->
-  <div id="verifyModal" class="modal hidden">
-    <div class="modal-content">
-      <h3>Vérifier vos numéros</h3>
-      <form id="verifyForm">
-        <div class="inputs">
-          <input type="number" min="0" max="99" placeholder="00">
-          <input type="number" min="0" max="99" placeholder="00">
-          <input type="number" min="0" max="99" placeholder="00">
-          <input type="number" min="0" max="99" placeholder="00">
-          <input type="number" min="0" max="99" placeholder="00">
-        </div>
-        <div class="modal-buttons">
-          <button type="submit">Vérifier</button>
-          <button type="button" id="closeModal">Fermer</button>
-        </div>
-      </form>
-    </div>
-  </div>
-`;
-
 let usedNumbers = new Set();
 const numberDisplay = document.getElementById('numbers');
 const startButton = document.getElementById('start');
