@@ -13,7 +13,7 @@ const verifyForm = document.getElementById('verifyForm');
 // Events
 startButton.addEventListener('click', () => {
     try {
-        const random = generateUniqueRandomNumber(0, 99);
+        const random = generateUniqueRandomNumber(1, 76);
 
         // Store it logically first
         usedNumbers.add(random);

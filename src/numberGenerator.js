@@ -1,9 +1,6 @@
 
 let usedNumbers = new Set();
 
-let minValue = 0;
-let maxValue = 99;
-
 export function generateUniqueRandomNumber(min, max) {
     if (usedNumbers.size >= (max - min + 1)) {
         throw new Error("All numbers in the range have been used.");
