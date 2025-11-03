@@ -11,8 +11,18 @@
 
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none; /* prevent bounce-scroll on iOS */
+}
+
 body {
-    font-family: Arial, sans-serif
+    background: url("/background.png") no-repeat center center;
+    background-size: cover;
 }
 
 #app {
@@ -164,8 +174,6 @@ spline-viewer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    gap: 2rem;
 }
 
 .modal-content h3 {
@@ -195,7 +203,8 @@ spline-viewer {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 1rem;
+
+    margin-top: 2rem;
 }
 
 .modal-buttons button {
@@ -207,8 +216,6 @@ spline-viewer {
     color: #1A1110;
     transition: all 0.3s ease;
     backdrop-filter: blur(12px);
-
-    margin-top: 2rem;
 }
 
 .modal-buttons button:hover {
@@ -217,6 +224,33 @@ spline-viewer {
 
 /* --- Mobile adjustments --- */
 @media (max-width: 480px) {
+
+
+    #app {
+        gap: 1rem;              /* reduce spacing between elements */
+        top: 10px;
+        left: 50%;/* move whole section higher */
+
+        transform: translateX(-50%); /* slightly smaller overall size */
+    }
+
+    h1 {
+        font-size: 2.5rem;        /* smaller headline */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    pre {
+        font-size: 25vh;          /* smaller number display */
+    }
+
+    .buttons {
+        gap: 0.8rem;              /* smaller gap between buttons */
+        margin-top: 1rem;       /* pull buttons closer to number */
+    }
+
     .inputs input {
         width: 50px;
         font-size: 0.9rem;
